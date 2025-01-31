@@ -1,0 +1,54 @@
+@import "@styles/variables.scss";
+
+.input_container {
+  $py: 8px;
+  $px: 40px;
+  $offsetX: 8px;
+  overflow: hidden;
+  position: relative;
+  left: 100px;
+
+  .input {
+    width: 100%;
+    background: $backgroundSecondary;
+    padding: $py $px;
+    border-radius: 8px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus ~ .input_label,
+    &:not(:placeholder-shown) ~ .input_label {
+      position: absolute;
+      left: 2 * $px;
+      opacity: 0;
+    }
+
+    &:focus ~ .input_magnifier,
+    &:not(:placeholder-shown) ~ .input_magnifier {
+      position: absolute;
+      left: $offsetX;
+    }
+  }
+
+  .input_label {
+    z-index: 100;
+    position: absolute;
+    top: $py;
+    left: $offsetX;
+    color: $white;
+    transition: 300ms;
+
+    &:hover {
+      cursor: text;
+    }
+  }
+
+  .input_magnifier {
+    position: absolute;
+    top: $py;
+    left: -24px;
+    transition: 300ms;
+  }
+}
