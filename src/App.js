@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/global.scss";
-import Input from "@components/UI/Input/Input";
+import Select from "@components/UI/Select/Select";
 
 const App = () => {
-  const handleInputChange = (value) => {
-    console.log(value);
+  const games = ["CS:GO", "CS2"];
+  const [selectedGame, setSelectedGame] = useState(games[0]);
+
+  const handleSelectChange = (game) => {
+    setSelectedGame(game);
   };
 
   return (
-    <Input
-      label="Enter nickname or Steam-link"
-      id="nickname"
-      onChange={handleInputChange}
+    <Select
+      label="Выбрать игру:"
+      options={games}
+      defaultValue={selectedGame}
+      onChange={handleSelectChange}
     />
   );
 };

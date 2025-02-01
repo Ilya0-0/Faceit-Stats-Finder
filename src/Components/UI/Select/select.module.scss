@@ -1,0 +1,59 @@
+@import "@styles/variables.scss";
+
+.select_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 24px;
+  user-select: none;
+  transition: 300ms;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 14px solid $white;
+  }
+
+  &.open::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 14px solid $white;
+    transform: rotate(180deg);
+  }
+
+  .select {
+    background: $gray;
+    border-radius: 8px;
+    padding: 0 16px;
+  }
+
+  .select_list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: $gray;
+    border-radius: 8px;
+
+    .select_list__item {
+      padding: 0 16px;
+      border-radius: 8px;
+    }
+
+    .select_list__item:hover {
+      background: $backgroundSecondary;
+    }
+  }
+}
