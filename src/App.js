@@ -1,9 +1,9 @@
 import React from "react";
 import "./styles/global.scss";
-import Header from "@components/Header/Header";
+import BackgroundSection from "@components/UI/BackgroundSection/BackgroundSection";
 
 const App = () => {
-  return <Header />;
+  return <BackgroundSection />;
 };
 
 export default App;
