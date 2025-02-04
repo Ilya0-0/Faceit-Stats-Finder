@@ -1,11 +1,17 @@
 import React from "react";
 import styles from "./playerAvatar.module.scss";
 
-const PlayerAvatar = ({ avatar, alt = "Player avatar" }) => {
+const PlayerAvatar = ({ avatar, className = " ", alt = "Player avatar" }) => {
   return avatar ? (
-    <img className={styles.player_avatar} src={avatar} alt={alt} />
+    <img
+      className={`${styles.player_avatar} ${className}`}
+      src={avatar}
+      alt={alt}
+    />
   ) : (
-    <div className={`${styles.player_avatar} ${styles.defaultAvatar}`}>
+    <div
+      className={`${styles.player_avatar} ${styles.defaultAvatar} ${className}`}
+    >
       <svg
         viewBox="0 0 80 80"
         fill="none"
