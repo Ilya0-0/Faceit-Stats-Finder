@@ -12,7 +12,7 @@ const App = () => {
   const [fetchUserStats, isLoading, error] = useFetching(async (nickname) => {
     const response = await PostService.getUserStatsByNickname(nickname);
     setUserData(response.data);
-    const gameData = response.data.games["cs2"];
+    const gameData = response.data.games["csgo"];
     setPlayer({
       nickname: response.data.nickname,
       avatar: response.data.avatar,
