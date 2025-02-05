@@ -5,6 +5,7 @@ import PostService from "@api/PostService";
 import SearchForm from "@components/SearchForm/SearchForm ";
 import Loader from "@components/UI/Loader/Loader";
 import PlayerCard from "@components/PlayerCard/PlayerCard";
+import StatsContainer from "@components/UI/StatsContainer/StatsContainer";
 
 const App = () => {
   const [userData, setUserData] = useState(null);
@@ -27,13 +28,15 @@ const App = () => {
 
   return (
     <>
-      <SearchForm onSubmit={fetchUserStats} />
-      {isLoading && <Loader size={100} />}
-      {error ? (
-        <p>Error: {error}</p>
-      ) : (
-        userData && <PlayerCard playerProp={player} />
-      )}
+      <StatsContainer>
+        <SearchForm onSubmit={fetchUserStats} />
+        {isLoading && <Loader size={100} />}
+        {error ? (
+          <p>Error: {error}</p>
+        ) : (
+          userData && <PlayerCard playerProp={player} />
+        )}
+      </StatsContainer>
     </>
   );
 };
