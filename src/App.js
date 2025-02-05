@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import "./styles/global.scss";
+import styles from "./app.module.scss";
+import Header from "@components/Header/Header";
+import BackgroundSection from "@components/UI/BackgroundSection/BackgroundSection";
+import BackgroundSectionImg from "@assets/grey-geometrical-shapes-background.jpg";
+import StatBox from "@components/UI/StatBox/StatBox";
 import { useFetching } from "@hooks/useFetching";
 import PostService from "@api/PostService";
 import SearchForm from "@components/SearchForm/SearchForm ";
@@ -28,15 +33,40 @@ const App = () => {
 
   return (
     <>
-      <StatsContainer>
-        <SearchForm onSubmit={fetchUserStats} />
-        {isLoading && <Loader size={100} />}
-        {error ? (
-          <p>Error: {error}</p>
-        ) : (
-          userData && <PlayerCard playerProp={player} />
-        )}
-      </StatsContainer>
+      <Header />
+      <BackgroundSection
+        image={BackgroundSectionImg}
+        className={styles.introduce_backgroundSection}
+      >
+        <div className="container h-100">
+          <div className="row h-100">
+            <div className="d-flex flex-column justify-content-center">
+              <div className="col-12 col-lg-8 mb-5">
+                <p className={styles.introduce_text}>
+                  Быстрая статистика игроков киберспортивной платформы Faceit
+                </p>
+              </div>
+              <div className="d-flex justify-content-center">
+                <div className="col-12 col-lg-4">
+                  <SearchForm onSubmit={fetchUserStats} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </BackgroundSection>
+      <div className="container h-100">
+        <div className="row h-100">
+          <StatBox>
+            {isLoading && <Loader size={100} />}
+            {error ? (
+              <p>Error: {error}</p>
+            ) : (
+              userData && <PlayerCard playerProp={player} />
+            )}
+          </StatBox>
+        </div>
+      </div>
     </>
   );
 };
