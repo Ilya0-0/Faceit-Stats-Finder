@@ -1,0 +1,21 @@
+.placeholderContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 32px;
+  height: auto;
+  position: relative;
+
+  .placeholderContent_title {
+    position: absolute;
+    font-size: clamp(18px, 3vw, 24px);
+    z-index: 100;
+    text-align: center;
+  }
+
+  .placeholderContent_img {
+    max-height: 100px;
+    opacity: 20%;
+  }
+}
